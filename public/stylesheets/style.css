@@ -1,8 +1,55 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	width: 100%;
+	height: 100%;
+	width: 100%;
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
+}
+
+.row {
+	height: 100%;
+}
+
+.verticalSeperator {
+	float: right;
+	width: 2px;
+	background-color: #010101;
+	height: 100%;
+}
+
+.menuList {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.menuList > li > a:hover {
+	text-decoration: none;
+}
+
+
+/*
+* Menu
+*/
+
+.header {
+	text-align: center;
+	height: 100%;
+	position: fixed;
+}
+
+#divHeaderLogo {
+	padding-top: 20%;
+	margin-bottom: 50%;
 }
