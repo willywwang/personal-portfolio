@@ -199,3 +199,18 @@ a, a:hover, a:active, a:visited, a:focus {
 .about-area {
 	color: #f4f4f4;
 }
+
+.about-seperator {
+	text-align: center;
+	height: 1px;
+	width: 90%;
+	background-color: #FF8C00;
+}
+
+#about-title {
+	font-family: AdamCGPro;
+}
+
+#about-text {
+	font-family: 'Open Sans', sans-serif;
+}
