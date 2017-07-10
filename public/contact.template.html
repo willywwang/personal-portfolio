@@ -1,0 +1,36 @@
+<div class="modal-header">
+	<h2 class="modal-title">Contact Me</h2>
+</div>
+<div class="modal-body">
+	<div class="panel panel-danger" ng-show="showErrors">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<span>Email failed to send. Please try again.</span>
+			</h4>
+		</div>
+	</div>
+	<div class="panel panel-success" ng-show="showSuccess">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<span>Email was successfully sent.</span>
+			</h4>
+		</div>
+	</div>
+	<p>Not a fan of forms? Feel free to email me directly at <b>wang.yw.william@gmail.com</b>. Let's work together and create something awesome!</p>
+	<i class="fa fa-spinner fa-spin" ng-show="didUserSubmit"></i>
+	<form ng-submit="submit()" ng-hide="showSuccess || didUserSubmit">
+		<br/>
+		<label>Name</label>
+		<input type="name" ng-model="name" ng-blur="updateName()" placeholder="Enter name" class="form-control" maxlength='40' required>
+		<br/>
+		<label>Email</label>
+		<input type="email" ng-model="email" ng-blur="updateEmail()" placeholder="Enter email" class="form-control" maxlength='40' required>
+		<br/>
+		<label>Message</label>
+		<textarea id="formMessage" ng-model="message" ng-blur="updateMessage()" placeholder="Enter message" class="form-control" required></textarea>
+		<br/>
+		<div class="modal-footer">
+			<input type="submit" value="Submit" class="btn btn-primary"/>
+		</div>
+	</form>
+</div>
