@@ -82,11 +82,15 @@ a, a:hover, a:active, a:visited, a:focus {
 	padding: 0;
 	list-style-type: none;
 	font-size: 20px;
-	font-family:Rajdhani', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 .menuList > li > a:hover {
 	text-decoration: none;
+}
+
+#menuListItem {
+	padding-bottom: 5px;
 }
 
 #menuListItem  > a {
