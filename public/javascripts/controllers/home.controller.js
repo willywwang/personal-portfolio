@@ -3,6 +3,8 @@ angular.module('websiteApp')
 	function($scope, $rootScope, $http, $window) {
     	$scope.date = new Date();
 
+    	$scope.landingDescriptors = ['Computer Science Student', 'Web Development', 'Android Development', 'Colliegiate eSports', 'Customer Support', 'Computer Builder'];
+
 		$scope.name = $window.sessionStorage.getItem('name') || "";
 		$scope.email = $window.sessionStorage.getItem('email') || "";
 		$scope.message = $window.sessionStorage.getItem('message') || "";
