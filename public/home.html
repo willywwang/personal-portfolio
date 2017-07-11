@@ -1,43 +1,103 @@
 <div class="container">
 	<div class="landing">
-		<div class="col-md-11 view">
+		<div class="col-xs-11 view">
 			<div class="landing-top-space"></div>
 			<div class="landing-titles">
 				<h1 id="landing-title">WILLIAM WANG</h1>
 				<h2 id="landing-descriptors"></h2>
 			</div>
 			<div class="landing-bottom-space">
-				<span class="fa-stack fa-2x">
-					<i class="fa fa-circle-thin fa-stack-2x"></i>
-					<i class="fa fa-chevron-down fa-stack-1x"></i>
-				</span>
+				<a class="about-scroll scrollAnimation" href="#about">
+					<i class="fa fa-4x fa-arrow-circle-o-down"></i>
+				</a>
 			</div>
 		</div>
-		<div class="col-md-1 view"></div>
+		<div class="col-xs-1 view"></div>
 	</div>
 	<div class="landing-about">
-		<div class="about-area">
-			<div class="container-fluid">
-				<div class="col-lg-3 view">
-					<h1 id="about-title">About</h1>
-					<div class="about-seperator"/>
-					<h4 id="about-text">My name is Will and I'm a 3rd year computer science major at UBC with several years of experience in web and android development. I can be described as a quirky personality with an undying love for boba and fried food.
-					<br/>
-					<br/>
-					I'm passionate about trying new foods and gadgets, listening to music, all things computer related, and exploring the outdoors. In my spare time I enjoy researching new technology/gadgets, talking about computers, and playing video games with my colliegiate team.
-					</h4>
+		<div class="about-area" id="about">
+			<div class="container-fluid about-container">
+				<div class="col-xs-2 col-sm-1 view"></div>
+				<div class="col-xs-8 col-sm-3 view">
+					<h2 class="about-title">About</h2>
+					<div class="about-seperator"></div>
+					<p class="about-text">My name is Will and I'm a 3rd year computer science major at UBC with several years of 	experience in web and android development. I can be described as a quirky personality with an insane love of boba and fried food.
+						<br/>
+						<br/>
+						I'm passionate about trying new foods and gadgets, listening to music, all things computer related, and exploring the outdoors. In my spare time I enjoy reading up on new technology, talking about computers, and playing video games with my colliegiate team.
+						<br/>
+						<br/>
+						This website was fueled by many cups of caffeine, a plethora of design decisions, and every dev's favourite resource - Stack Overflow. Hopefully you enjoy the content on this website and journey down the rabbit hole of programming with a relatively new developer like myself.
+					</p>
 				</div>
-				<div class="col-lg-1 view"></div>
-				<div class="col-lg-3 view">
-					<h1 id="about-title">Skills</h1>
-					<div class="about-seperator"/>
-					<h4 id="about-text">
-						<span><i class="fa fa-desktop"></i>&nbsp;&nbsp;Experience in full stack web development</span>	
-					</h4>
+				<div class="col-xs-2 col-sm-1 view"></div>
+				<div class="col-xs-12 col-sm-6 view">
+					<div class="col-xs-2 no-padding-margin"></div>
+					<div class="col-xs-8 no-padding-margin">
+						<h2 class="about-title">A depiction of my average day</h2>
+						<div class="about-seperator"></div>
+						<div class="about-graph pull-left">
+							<h4 class="graph-title">What my day should be</h4>
+							<br/>
+							<canvas id="doughnut" class="chart chart-doughnut" chart-data="expected_action_percentages" 
+							chart-labels="expected_action_labels" chart-dataset-override="expected_graph_override"></canvas>
+						</div>
+						<div class="about-graph pull-right">
+							<h4 class="graph-title">What it ends up being</h4>
+							<br/>
+							<canvas id="doughnut" class="chart chart-doughnut" chart-data="actual_action_percentages" 
+							chart-labels="actual_action_labels" chart-dataset-override="actual_graph_override"></canvas>
+						</div>
+					</div>
+					<div class="col-xs-2 no-padding-margin"></div>
 				</div>
-				<div class="col-lg-1 view"></div>
-				<div class="col-lg-4"></div>
+				<div class="hidden-xs col-sm-1"></div>
 			</div>
 		</div>
+	</div>
+	<div class="landing-contact">
+		<div class="container-fluid">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-8">
+				<h2 class="contact-title">Contact Me</h2>
+				<div class="panel panel-danger" ng-show="showErrors">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<span>Email failed to send. Please try again.</span>
+						</h4>
+					</div>
+				</div>
+				<div class="panel panel-success" ng-show="showSuccess">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<span>Email was successfully sent.</span>
+						</h4>
+					</div>
+				</div>
+				<p ng-hide="showSuccess">Not a fan of forms? Feel free to email me directly at <b>wang.yw.william@gmail.com</b>. Let's work together to create something great. I look forward to hearing from you soon!</p>
+				<i class="fa fa-spinner fa-spin" ng-show="didUserSubmit"></i>
+				<form ng-submit="submit()" ng-hide="showSuccess || didUserSubmit">
+					<br/>
+					<label>Name</label>
+					<input type="name" ng-model="name" ng-blur="updateName()" placeholder="Enter name" class="form-control" maxlength='40' required>
+					<br/>
+					<label>Email</label>
+					<input type="email" ng-model="email" ng-blur="updateEmail()" placeholder="Enter email" class="form-control" maxlength='40' required>
+					<br/>
+					<label>Message</label>
+					<textarea id="formMessage" ng-model="message" ng-blur="updateMessage()" placeholder="Enter message" class="form-control" required></textarea>
+					<br/>
+					<input type="submit" value="Submit" class="btn btn-primary btn-submit"/>
+				</form>
+			</div>
+			<div class="col-xs-2"></div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<p>Copyright &#9400 {{date | date:'yyyy'}} William Wang. All assets belong to their respective owners.</p>		
+		</div>
+		<div class="col-xs-2"></div>
 	</div>
 </div>

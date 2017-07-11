@@ -26,16 +26,28 @@ a, a:hover, a:active, a:visited, a:focus {
 	height: 100%;
 }
 
+.container {
+	height: 100%;
+	width: 100%;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+.view {
+	height: 100%;
+	padding: 0 0 0 0;
+}
+
+.fa {
+	color: black;
+}
+
 .fa-spin {
 	padding-top: 20%;
 	padding-bottom: 20%;
 	padding-left: 50%;
 	padding-right: 50%;
 	font-size: 50px;
-}
-
-.fa {
-	color: black;
 }
 
 .fa-chevron-circle-down:hover {
@@ -51,16 +63,14 @@ a, a:hover, a:active, a:visited, a:focus {
 	color: #FFCB9A !important;
 }
 
-.container {
-	height: 100%;
-	width: 100%;
-	padding: 0 0 0 0;
-	margin: 0 0 0 0;
+.footer {
+	font-family: 'Rajdhani', sans-serif;
+	text-align: center;
 }
 
-.view {
-	height: 100%;
+.no-padding-margin {
 	padding: 0 0 0 0;
+	margin: 0 0 0 0;
 }
 
 /*
@@ -192,8 +202,13 @@ a, a:hover, a:active, a:visited, a:focus {
 	font-size: 30px;
 }
 
+/*
+* About section on landing
+*/
+
 .landing-about {
 	background-color: #008080;
+	padding-bottom: 2%;
 }
 
 .about-area {
@@ -201,16 +216,72 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 .about-seperator {
-	text-align: center;
 	height: 1px;
-	width: 90%;
+	width: 100%;
 	background-color: #FF8C00;
+	margin-bottom: 2%;
 }
 
-#about-title {
+.about-title {
 	font-family: AdamCGPro;
 }
 
-#about-text {
+.about-text {
 	font-family: 'Open Sans', sans-serif;
+}
+
+.about-container {
+	padding: 0 0 0 0;
+}
+
+.graph-title {
+	text-align: center;
+	font-family: AdamCGPro;
+}
+
+.about-graph {
+	text-align: center;
+	width: 50%;
+}
+
+/*
+* Contact section on landing
+*/
+
+.landing-contact {
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 2%;
+}
+
+.contact-title {
+	font-family: AdamCGPro;
+}
+
+.btn-submit {
+	background-color: transparent;
+	color: #006dcc;
+}
+
+/*
+* Media queries
+*/
+
+@media screen and (min-width: 0px) and (max-width: 1025px) {
+	#divHeaderLogo {
+		padding-top: 20%;
+		height: 38%;
+	}
+
+	#divHeaderMenu {
+		padding-top: 15%;
+		height: 55%;
+	}
+
+	#divBottomLinks {
+		height: 7%;
+	}
+
+	.footer {
+		padding-top: 5%;
+	}
 }
