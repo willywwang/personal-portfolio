@@ -25,6 +25,7 @@
 	<script type="text/javascript" src='javascripts/controllers/header.controller.js'></script>
 	<script type="text/javascript" src='javascripts/controllers/home.controller.js'></script>
 	<script type="text/javascript" src='javascripts/controllers/contact.controller.js'></script>
+	<script type="text/javascript" src='javascripts/controllers/experience.controller.js'></script>
 	<script type="text/javascript" src='javascripts/directives/typedjs.directive.js'></script>
 	<base href="/">
 </head>
@@ -38,11 +39,11 @@
 				<br/>
 				<div class="text-center" id="divHeaderMenu">
 					<ul class="menuList">
-						<li id="menuListItem"><a ng-class="getActiveMenuLinkClass('/')" href="/">HOME</a></li>
-						<li id="menuListItem"><a ng-class="getActiveMenuLinkClass('/experience')" href="/experience">EXPERIENCE</a></li>
+						<li id="menuListItem"><a ng-class="getActiveMenuLinkClass('/')" href="/#/">HOME</a></li>
+						<li id="menuListItem"><a ng-class="getActiveMenuLinkClass('/experience')" href="/#/experience">EXPERIENCE</a></li>
 						<li id="menuListItem"><a ng-click="openContactModal()">CONTACT</a></li>
 						<li id="menuListItem"><a href="documents/resume.pdf" target="_blank">RESUME</a></li>
-						<li id="menuListItem"><a ng-class="getActiveMenuLinkClass('/blog')" href="/blog">BLOG</a></li>
+						<li id="menuListItem"><a ng-class="getActiveMenuLinkClass('/blog')" href="/#/blog">BLOG</a></li>
 					</ul>
 				</div>
 				<div class="text-center" id="divBottomLinks">
