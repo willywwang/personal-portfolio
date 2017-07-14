@@ -77,7 +77,11 @@ a, a:hover, a:active, a:visited, a:focus {
 
 .seperator {
 	width: 100%;
-	height: 50px;
+	height: 30px;
+}
+
+.modal-title {
+	font-family: AdamCGPro;
 }
 
 /*
@@ -88,12 +92,6 @@ a, a:hover, a:active, a:visited, a:focus {
 {
 	font-family: AdamCGPro;
 	src: url("../fonts/ADAM.CG.PRO.otf");
-}
-
-@font-face
-{
-	font-family: BebasNeueRegular;
-	src: url("../fonts/BebasNeueRegular.otf");
 }
 
 /*
@@ -168,6 +166,14 @@ a, a:hover, a:active, a:visited, a:focus {
 	resize: vertical;
 }
 
+.btn-contact-submit {
+	width: 15%;
+}
+
+.btn-contact-close {
+	width: 15%;
+}
+
 /*
 * Landing Page
 */
@@ -225,6 +231,7 @@ a, a:hover, a:active, a:visited, a:focus {
 */
 
 .landing-about {
+	font-family: 'Open Sans', sans-serif;
 	background-color: #008080;
 	padding-bottom: 2%;
 }
@@ -244,10 +251,6 @@ a, a:hover, a:active, a:visited, a:focus {
 	font-family: AdamCGPro;
 }
 
-.about-text {
-	font-family: 'Open Sans', sans-serif;
-}
-
 .about-container {
 	padding: 0 0 0 0;
 }
@@ -260,6 +263,36 @@ a, a:hover, a:active, a:visited, a:focus {
 .about-graph {
 	text-align: center;
 	width: 50%;
+}
+
+/*
+* Experience section on landing
+*/
+
+.landing-experience {
+	padding-top: 2%;
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 2%;
+}
+
+.experience-seperator {
+	height: 1px;
+	width: 100%;
+	background-color: #008080;
+	margin-bottom: 2%;
+}
+
+.div-experience-job {
+	width: 100%;
+}
+
+/*
+* Project section on landing
+*/
+
+.landing-projects {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #D3D3D3;
 }
 
 /*
@@ -278,86 +311,4 @@ a, a:hover, a:active, a:visited, a:focus {
 .btn-submit {
 	background-color: transparent;
 	color: #006dcc;
-}
-
-/* 
-* Project section
-*/
-
-.project-border {
-	text-align: center;
-	font-family: BebasNeueRegular;
-	color: black;
-	font-family: 'Open Sans', sans-serif;
-	margin: 0 0 15px 20%;
-	background-color: #fff;
-	border-color: #107896;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 12px;
-	width: 100%;
-	height: auto;
-	min-width: 100%;
-}
-
-#project-panel {
-	position: relative;
-	opacity: 0.3;
-	min-width: 100%;
-	max-width: 100%;
-	border-radius: 12px;
-}
-
-#panel-title {
-	font-family: BebasNeueRegular;
-	line-height: 60%;
-	font-size: 4vw;
-}
-
-#panel-type {
-	font-family: BebasNeueRegular;
-	line-height: 100%;
-	font-size: 2.3vw;
-}
-
-#panel-date {
-	font-family: BebasNeueRegular;
-	line-height: 60%;
-	font-size: 1.8vw;
-	width: 100%;
-}
-
-#panel-hover {
-	font-family: BebasNeueRegular;
-	font-size: 1vw;
-	width: 100%;
-}
-
-#project-panel-info {
-	font-family: BebasNeueRegular;
-	position: absolute;
-	top: 0%;
-	left: 23%;
-	width: 90%;
-	text-align: center;
-}
-
-#project-panel-buttons {
-	font-family: BebasNeueRegular;
-	position: absolute;
-	top: 30%;
-	left: 24.5%;
-	width: 90%;
-	text-align: center;
-}
-
-#project-info-button {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.1vw;
-	color: black;
-	background-color: transparent;
-	border-style: solid;
-	border-width: 2px;
-	border-color: black;
-	border-radius: 50px;
 }

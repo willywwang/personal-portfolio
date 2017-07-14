@@ -40,7 +40,7 @@
 							<div class="about-graph pull-left">
 								<h4 class="graph-title">What my day should be</h4>
 								<br/>
-								<canvas id="doughnut" class="chart chart-doughnut" chart-data="expected_action_percentages" 
+								<canvas id="doughnut" class="chart chart-doughnut" chart-data="expected_action_percentages" chart-options="actual_options"
 								chart-labels="expected_action_labels" chart-dataset-override="expected_graph_override"></canvas>
 							</div>
 							<div class="about-graph pull-right">
@@ -55,21 +55,55 @@
 					<div class="hidden-xs col-lg-1"></div>
 				</div>
 				<div class="seperator"></div>
-				<div class="row">
-					<div class="col-xs-2 col-sm-1 view"></div>
-					<div class="col-xs-8 col-sm-3 view">
-						<h2 class="about-title">Experience</h2>
-						<div class="about-seperator">
-							
-						</div>
-					</div>
-					<div class="col-xs-2 col-sm-1 view"></div>
-					<div class="col-xs-12 col-sm-6 view"></div>
-					<div class="hidden-xs col-sm-1"></div>
-				</div>
 			</div>
 		</div>
 	</div>
+	<div class="landing-experience">
+		<div class="container-fluid about-container">
+			<div class="col-xs-2 col-lg-1 view"></div>
+			<div class="col-xs-8 col-lg-3 view">
+				<h2 class="about-title">Experience</h2>
+				<div class="experience-seperator"></div>
+				<div class="div-experience-job">
+					<a class="experience-job-title" href="javascript:void(0)" ng-click="openEDPModal()">EDP Software - Software Developer Intern</a>
+					<p class="experience-date">Jan 2017 - Aug 2017</p>
+				</div>
+				<div class="div-experience-job">
+					<a class="experience-job-title" href="javascript:void(0)" ng-click="openAffModal()">Affinity Managed IT - Support Technician</a>
+					<p class="experience-date">Feb 2016 - Aug 2016</p>
+				</div>
+				<div class="div-experience-job">
+					<a class="experience-job-title" href="javascript:void(0)" ng-click="openKumonModal()">Kumon - Team Leader</a>
+					<p class="experience-date">May 2013 - Aug 2016</p>
+				</div>
+			</div>
+			<div class="col-xs-2 col-lg-1 view"></div>
+			<div class="col-xs-12 col-lg-6 view">
+				<div class="col-xs-2 no-padding-margin"></div>
+				<div class="col-xs-8 no-padding-margin">
+					<h2 class="about-title">Average Cups of Coffee/Tea Per Day</h2>
+					<div class="experience-seperator"></div>
+					<br/>
+					<div>
+						<canvas id="line" class="chart chart-line" chart-data="line_data" 
+						chart-labels="line_labels" chart-options="line_options"></canvas>
+					</div>
+				</div>
+				<div class="col-xs-2 no-padding-margin"></div>
+			</div>
+			<div class="hidden-xs col-lg-1 view"></div>
+		</div>
+	</div>
+	<div class="landing-projects">
+		<div class="container-fluid">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-8">
+				<h1>PROJECTS</h1>
+			</div>
+			<div class="col-xs-2"></div>
+		</div>
+	</div>
+	<div class="seperator"></div>
 	<div class="landing-contact">
 		<div class="container-fluid">
 			<div class="col-xs-2"></div>

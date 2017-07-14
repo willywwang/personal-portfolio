@@ -30,7 +30,8 @@
 		<textarea id="formMessage" ng-model="message" ng-blur="updateMessage()" placeholder="Enter message" class="form-control" required></textarea>
 		<br/>
 		<div class="modal-footer">
-			<input type="submit" value="Submit" class="btn btn-primary"/>
+			<input type="submit" value="Submit" class="btn btn-primary btn-contact-submit"/>
+			<input type="close" value="Close" ng-click="close()" class="btn btn-default btn-contact-close"/>
 		</div>
 	</form>
 </div>

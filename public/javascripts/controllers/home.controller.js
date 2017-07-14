@@ -1,6 +1,6 @@
 angular.module('websiteApp')
-.controller('homeController', ['$scope', '$rootScope', '$http', '$window',
-	function($scope, $rootScope, $http, $window) {
+.controller('homeController', ['$scope', '$rootScope', '$http', '$window', '$uibModal',
+	function($scope, $rootScope, $http, $window, $uibModal) {
 		$scope.date = new Date();
 
 		$scope.landingDescriptors = ['Computer Science Student', 'Web Development', 'Android Development', 'Colliegiate eSports', 'Customer Support', 'Computer Builder'];
@@ -16,6 +16,7 @@ angular.module('websiteApp')
 		$scope.pythonProjectShow="true";
 		$scope.webProjectShow="true";
 
+		// initializing donut graph data
 		$scope.expected_action_labels = ["Sleep", "School", "Food", "Leisure", "Housework", "General"];
 		$scope.expected_action_percentages = [33, 33, 9, 17, 4, 4];
 		$scope.expected_graph_override = { 
@@ -27,6 +28,34 @@ angular.module('websiteApp')
 		$scope.actual_graph_override = { 
 			borderColor: ['#008080', '#008080', '#008080', '#008080', '#008080', '#008080', '#008080']
 		};
+
+		// initializing line graph data
+		$scope.line_labels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		$scope.line_data = [1, 4, 2, 2, 1, 0, 0];
+		$scope.line_options = {
+			tooltips: {
+				enabled: false
+			},
+			hover: {
+				mode: null
+			},
+			scales: {
+				xAxes: [{
+					gridLines: {
+						display: false
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false
+					},
+					ticks: {
+						stepSize: 1,
+						beginAtZero: true
+					}
+				}]
+			}
+		}
 
 		$scope.updateName = function() {
 			$window.sessionStorage.setItem('name', $scope.name);
@@ -57,6 +86,27 @@ angular.module('websiteApp')
 				}
 
 				$scope.didUserSubmit = false;
+			});
+		}
+
+		$scope.openEDPModal = function() {
+			$uibModal.open({
+				templateUrl: 'edp.template.html',
+				controller: 'modalController'
+			});
+		}
+
+		$scope.openAffModal = function() {
+			$uibModal.open({
+				templateUrl: 'affinity.template.html',
+				controller: 'modalController'
+			});
+		}
+
+		$scope.openKumonModal = function() {
+			$uibModal.open({
+				templateUrl: 'kumon.template.html',
+				controller: 'modalController'
 			});
 		}
 	}]);

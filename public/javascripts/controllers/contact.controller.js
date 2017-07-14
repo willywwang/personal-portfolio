@@ -1,6 +1,6 @@
 angular.module('websiteApp')
-.controller('contactController', ['$scope', '$rootScope', '$http', '$window',
-	function($scope, $rootScope, $http, $window) {
+.controller('contactController', ['$scope', '$rootScope', '$http', '$window', '$uibModalInstance',
+	function($scope, $rootScope, $http, $window, $uibModalInstance) {
 		$scope.name = $window.sessionStorage.getItem('name') || "";
 		$scope.email = $window.sessionStorage.getItem('email') || "";
 		$scope.message = $window.sessionStorage.getItem('message') || "";
@@ -38,5 +38,9 @@ angular.module('websiteApp')
 
 				$scope.didUserSubmit = false;
 			});
+		}
+
+		$scope.close = function() {
+			$uibModalInstance.close();
 		}
 	}]);
