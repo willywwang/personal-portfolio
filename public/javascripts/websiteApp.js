@@ -4,13 +4,15 @@ app.run(['$rootScope', '$http', '$window', '$location',
 	function($rootScope, $http, $window, $location) {
 	}]);
 
-app.config(function($routeProvider)	 {
+app.config(function($routeProvider, $locationProvider)	 {
 	$routeProvider.when('/', {
 		templateUrl: 'home.html',
 		controller: 'homeController'
 	})
-	$routeProvider.when('/experience', {
+	.when('/experience', {
 		templateUrl: 'experience.html',
 		controller: 'experienceController'
 	})
+
+	$locationProvider.html5Mode(true);
 });

@@ -32,6 +32,7 @@ app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', index);
 app.use('/contact', contact);
+app.use('/*', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
