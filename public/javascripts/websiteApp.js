@@ -9,10 +9,6 @@ app.config(function($routeProvider, $locationProvider)	 {
 		templateUrl: 'home.html',
 		controller: 'homeController'
 	})
-	.when('/experience', {
-		templateUrl: 'experience.html',
-		controller: 'experienceController'
-	})
 
 	$locationProvider.html5Mode(true);
 });

@@ -1,9 +1,9 @@
 angular.module('websiteApp')
 .controller('homeController', ['$scope', '$rootScope', '$http', '$window',
 	function($scope, $rootScope, $http, $window) {
-    	$scope.date = new Date();
+		$scope.date = new Date();
 
-    	$scope.landingDescriptors = ['Computer Science Student', 'Web Development', 'Android Development', 'Colliegiate eSports', 'Customer Support', 'Computer Builder'];
+		$scope.landingDescriptors = ['Computer Science Student', 'Web Development', 'Android Development', 'Colliegiate eSports', 'Customer Support', 'Computer Builder'];
 
 		$scope.name = $window.sessionStorage.getItem('name') || "";
 		$scope.email = $window.sessionStorage.getItem('email') || "";
@@ -11,6 +11,10 @@ angular.module('websiteApp')
 		$scope.showErrors = false;
 		$scope.showSuccess = false;
 		$scope.didUserSubmit = false;
+		
+		$scope.androidProjectShow="true";
+		$scope.pythonProjectShow="true";
+		$scope.webProjectShow="true";
 
 		$scope.expected_action_labels = ["Sleep", "School", "Food", "Leisure", "Housework", "General"];
 		$scope.expected_action_percentages = [33, 33, 9, 17, 4, 4];
