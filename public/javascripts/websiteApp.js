@@ -9,6 +9,7 @@ app.config(function($routeProvider, $locationProvider)	 {
 		templateUrl: 'home.html',
 		controller: 'homeController'
 	})
+	.otherwise({redirectTo: '/'})
 
 	$locationProvider.html5Mode(true);
 });

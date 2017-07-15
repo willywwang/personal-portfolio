@@ -88,6 +88,13 @@ a, a:hover, a:active, a:visited, a:focus {
 	display: none;
 }
 
+.header-phone {
+	background-color: #f4f4f4;
+	height: 45px;
+	width: 100%;
+	z-index: 1;
+}
+
 /*
 * Fonts
 */
@@ -123,6 +130,37 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 #menuListItem > a:hover {
+	color: #A9A9A9;
+}
+
+.div-phone-menu {
+	padding-top: 5px;
+}
+
+.btn-menu, .btn-menu:hover, .btn-menu:active, .btn-menu:visited, .btn-menu:focus {
+	outline: none;
+}
+
+.btn-menu:hover {
+	color: #bcbcbc;
+}
+
+.mobileMenu {
+	background: #f4f4f4
+}
+
+#phone-menu-item {
+	padding-top: 5px;
+	padding-left: 12px;
+	padding-bottom: 5px;
+	border-top: #dbdbdb 1px solid;
+}
+
+#phone-menu-item > a {
+	color: #808080;
+}
+
+#phone-menu-item > a:hover {
 	color: #A9A9A9;
 }
 
@@ -346,12 +384,6 @@ a, a:hover, a:active, a:visited, a:focus {
 	border-radius: 50px;
 }
 
-.project-title {
-	text-align: left;
-	font-family: AdamCGPro;
-	top: -20%;
-}
-
 /*
 * Contact section on landing
 */
@@ -368,4 +400,51 @@ a, a:hover, a:active, a:visited, a:focus {
 .btn-submit {
 	background-color: transparent;
 	color: #006dcc;
+}
+
+/*
+* Media queries
+*/
+
+@media screen and (min-width: 0px) and (max-width: 766px) {
+	.project-panel-info {
+		top: 0%;
+	}
+
+	.project-name {
+		font-size: 8vw;
+	}
+
+	.project-type {
+		font-size: 6vw;
+	}
+
+	.btn-contact-submit {
+		width: 22%;
+	}
+
+	.btn-contact-close {
+		width: 22%;
+	}
+
+}
+
+@media screen and (min-width: 0px) and (max-width: 1025px) {
+	#divHeaderLogo {
+		padding-top: 20%;
+		height: 38%;
+	}
+
+	#divHeaderMenu {
+		padding-top: 15%;
+		height: 55%;
+	}
+
+	#divBottomLinks {
+		height: 7%;
+	}
+
+	.footer {
+		padding-top: 5%;
+	}
 }

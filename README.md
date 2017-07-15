@@ -1,6 +1,5 @@
 ## TODO: 
 - Blog page - design framework + implement
-- Mobile navigation
 - Secure RESTful APIs
 
 ## Change Log
