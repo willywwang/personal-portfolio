@@ -1,11 +1,13 @@
 ## TODO: 
-- Experience page - implement
 - Blog page - design framework + implement
-- Mobile experience
-- Get HTML5LocationMode working with angular routes
+- Mobile navigation
 - Secure RESTful APIs
 
 ## Change Log
+July 14, 2017:
+- Landing page updated, fully responsive
+- Experience, about, projects all fully implemented and responsive
+
 July 11, 2017:
 - Landing Page UX Implemented
 - First pages now responsive
