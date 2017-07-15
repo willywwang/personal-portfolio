@@ -95,13 +95,77 @@
 		</div>
 	</div>
 	<div class="landing-projects">
-		<div class="container-fluid">
-			<div class="col-xs-2"></div>
-			<div class="col-xs-8">
-				<h1>PROJECTS</h1>
+		<div class="seperator"></div>
+		<div class="container-fluid about-container">
+			<div class="col-xs-2 col-lg-1 view"></div> 
+			<div class="col-xs-8 col-lg-3 view">
+				<img class="project-image" 
+				src="images/battleship.jpg" 
+				alt="battleship application" 
+				ng-mouseenter="viewProject1InfoButtons=true"
+				ng-mouseleave="viewProject1InfoButtons=false">
+				<div class="project-panel-info" ng-mouseenter="viewProject1InfoButtons=true" ng-hide="viewProject1InfoButtons">
+					<h2	ng-mouseenter="viewProject1InfoButtons=true">Battleship</h2>
+					<h3 ng-mouseenter="viewProject1InfoButtons=true">Console Application</h3>
+				</div>
+				<div class="project-panel-buttons" ng-mouseenter="viewProject1InfoButtons=true" 
+				ng-show="viewProject1InfoButtons">
+					<button class="project-button" ng-disabled="isProjectModalOpen" ng-click="openPythonProjectModal()" ng-mouseenter="viewProject1InfoButtons=true">
+						<i style="color: black" class="glyphicon glyphicon-info-sign" ng-mouseenter="viewProject1InfoButtons=true"></i>&nbsp;&nbsp;Learn More
+					</button>
+					<br/>
+					<br/>
+					<a href="https://github.com/willywwang/BattleshipGame" target="_blank" 
+					ng-mouseenter="viewProject1InfoButtons=true">
+						<button class="project-button" ng-mouseenter="viewProject1InfoButtons=true">
+							<i style="color: black" class="glyphicon glyphicon-new-window" ng-mouseenter="viewProject1InfoButtons=true"></i>&nbsp;&nbsp;Source Code
+						</button>
+					</a>
+				</div>
 			</div>
-			<div class="col-xs-2"></div>
+			<div class="col-xs-2 col-lg-1 view"></div>
+			<div class="col-xs-12 hidden-lg view">
+				<div class="seperator"></div>
+			</div>
+			<div class="col-xs-2 hidden-lg view"></div>
+			<div class="col-xs-8 col-lg-3 view">
+				<img class="project-image" 
+				src="images/website.jpg" 
+				alt="web application"
+				ng-mouseenter="viewProject2InfoButtons=true"
+				ng-mouseleave="viewProject2InfoButtons=false">
+				<div class="project-panel-info" ng-mouseenter="viewProject2InfoButtons=true" ng-hide="viewProject2InfoButtons">
+					<h2 ng-mouseenter="viewProject2InfoButtons=true">Various Websites</h2>
+					<h3 ng-mouseenter="viewProject2InfoButtons=true">Web Application</h3>
+				</div>
+				<div class="project-panel-buttons" ng-mouseenter="viewProject2InfoButtons=true" 
+				ng-show="viewProject2InfoButtons">
+					<button class="project-button" ng-disabled="isProjectModalOpen" ng-click="openWebProjectModal()" 
+					ng-mouseenter="viewProject2InfoButtons=true">
+						<i style="color: black" class="glyphicon glyphicon-info-sign" ng-mouseenter="viewProject2InfoButtons=true"></i>
+						&nbsp;&nbsp;Learn More
+					</button>
+					<br/>
+					<br/>
+					<a href="https://github.com/willywwang/willywwang.github.io" target="_blank" 
+					ng-mouseenter="viewProject2InfoButtons=true">
+						<button class="project-button" ng-mouseenter="viewProject2InfoButtons=true">
+							<i style="color: black" class="glyphicon glyphicon-new-window" ng-mouseenter="viewProject2InfoButtons=true"></i>&nbsp;&nbsp;Source Code
+						</button>
+					</a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-lg-3">
+				<div class="hidden-lg seperator"></div>
+				<div class="about-graph-1">
+					<h3 class="graph-title">My Average Cycle (%)</h3>
+					<br/>
+					<canvas id="doughnut" class="chart chart-doughnut" chart-data="average_percentages" chart-labels="average_labels" chart-colors="average_colors" chart-dataset-override="average_override"></canvas>
+				</div>
+			</div>
+			<div class="col-xs-2 col-lg-1 view"></div> 
 		</div>
+		<div class="seperator"></div>
 	</div>
 	<div class="seperator"></div>
 	<div class="landing-contact">

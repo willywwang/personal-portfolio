@@ -84,6 +84,10 @@ a, a:hover, a:active, a:visited, a:focus {
 	font-family: AdamCGPro;
 }
 
+.visible {
+	display: none;
+}
+
 /*
 * Fonts
 */
@@ -265,6 +269,11 @@ a, a:hover, a:active, a:visited, a:focus {
 	width: 50%;
 }
 
+.about-graph-1 {
+	text-align: center;
+	width: 100%;
+}
+
 /*
 * Experience section on landing
 */
@@ -291,8 +300,56 @@ a, a:hover, a:active, a:visited, a:focus {
 */
 
 .landing-projects {
+	padding-top: 2%;
+	padding-bottom: 2%;
 	font-family: 'Open Sans', sans-serif;
-	background-color: #D3D3D3;
+	background-color: #ED6A5A;
+}
+
+.project-panel-info {
+	font-family: AdamCGPro;
+	position: absolute;
+	top: 18%;
+	left: 0%;
+	width: 100%;
+	text-align: center;
+}
+
+.project-image {
+	background-color: #fff;
+	border-color: #88A0A8;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 12px;
+	width: 80%;
+	height: auto;
+	min-width: 100%;
+}
+
+.project-panel-buttons a {
+	color: black;
+}
+
+.project-panel-buttons {
+	position: absolute;
+	top: 30%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.project-button {
+	background-color: transparent;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	border-radius: 50px;
+}
+
+.project-title {
+	text-align: left;
+	font-family: AdamCGPro;
+	top: -20%;
 }
 
 /*

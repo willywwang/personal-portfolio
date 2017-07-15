@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'William Wang - CPSC' });
+  res.render('index', { title: 'Will Wang - CPSC' });
 });
 
 module.exports = router;
