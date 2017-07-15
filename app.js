@@ -10,7 +10,6 @@ require('./models/models');
 //var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/sample-app');
 
-var config = require('./config.json');
 var index = require('./routes/index');
 var contact = require('./routes/contact')
 
@@ -23,7 +22,7 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(session({ secret: config.sessionSecret }));
+app.use(session({ secret: process.env.sessionSecret }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
