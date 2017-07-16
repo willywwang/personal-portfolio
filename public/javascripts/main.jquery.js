@@ -8,9 +8,14 @@ $(document).ready(function(){
        if (this.hash !== "") {
         event.preventDefault();
         var hash = this.hash;
+        var offset = 0;
+
+        if ($('.header-phone').is(':visible')) {
+          offset = 45;
+        }
 
         $('html, body').animate({
-         scrollTop: $(hash).offset().top
+         scrollTop: $(hash).offset().top - offset
        }, 900);
 
         window.location.hash = '';

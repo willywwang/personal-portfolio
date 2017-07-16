@@ -209,10 +209,12 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 .btn-contact-submit {
+	text-aligln: center;
 	width: 15%;
 }
 
 .btn-contact-close {
+	text-align: center;
 	width: 15%;
 }
 
@@ -426,7 +428,16 @@ a, a:hover, a:active, a:visited, a:focus {
 	.btn-contact-close {
 		width: 22%;
 	}
+}
 
+@media screen and (min-width: 0px) and (max-width: 424px) {
+	.btn-contact-submit {
+		width: 28%;
+	}
+
+	.btn-contact-close {
+		width: 28%;
+	}
 }
 
 @media screen and (min-width: 0px) and (max-width: 1025px) {
