@@ -4,7 +4,6 @@ function resizeHeader() {
 };
 
 $(document).ready(function(){
-  var x = $('.scrollAnimation');
   $('.scrollAnimation').on('click', function(event) {
    if (this.hash !== "") {
     event.preventDefault();
