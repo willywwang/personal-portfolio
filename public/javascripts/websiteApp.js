@@ -9,6 +9,10 @@ app.config(function($routeProvider, $locationProvider)	 {
 		templateUrl: 'home.html',
 		controller: 'homeController'
 	})
+	.when('/blog', {
+		templateUrl: 'blog.html',
+		controller: 'blogController'
+	})
 	.otherwise({redirectTo: '/'})
 
 	$locationProvider.html5Mode(true);

@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser(process.env.sessionSecret));
+app.use(cookieParser('asdf'));
 app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
@@ -45,7 +45,12 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+
+  if (err.status === 404) {
+  	res.render('404', { title: 'Will Wang - CPSC' });
+  } else {
+  	res.render('index');
+  }
 });
 
 module.exports = app;

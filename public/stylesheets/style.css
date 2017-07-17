@@ -106,6 +106,19 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 /*
+* Errors
+*/
+
+.error-template {
+	padding-top: 15%;
+	text-align: center;
+}
+
+.btn-error a {
+	color: black;
+}
+
+/*
 * Navigation Menu
 */
 
