@@ -12,6 +12,7 @@ require('./models/models');
 
 var index = require('./routes/index');
 var contact = require('./routes/contact')
+var blog = require('./routes/blog');
 
 var app = express();
 
@@ -22,13 +23,15 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser('asdf'));
+app.use(cookieParser(process.env.sessionSecret));
 app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', index);
 app.use('/contact', contact);
+app.use('/blog', blog);
+app.use('/*', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
