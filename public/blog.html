@@ -1,6 +1,26 @@
 <div class="container">
-	<div class="col-xs-8 col-lg-9">
+	<div class="phone-seperator"></div>
+	<div class="col-xs-12 col-sm-9" ng-repeat="post in blogPosts">
+		<div class="card text-center">
+			<div class="card-block">
+				<p class="card-date text-muted">{{post.created_on | date: mediumDate }}</p>
+				<h2>{{post.type}}</h2>
+				<h3>{{post.title}}</h3>
+				<h4>{{post.summary}}</h4>
+				<a href="#" ng-hide="post.post.length < 100" class="btn btn-primary">Read Post</a>
+			</div>
+			<br/>
+		</div>
 	</div>
-	<div class="col-xs-4 col-lg-3">
+	<div class="hidden-xs col-sm-3">
+		<div class="filters">
+		</div>
+	</div>
+	<div class="footer-blog">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<p>Copyright &#9400 {{date | date:'yyyy'}} William Wang. All assets belong to their respective owners.</p>		
+		</div>
+		<div class="col-xs-2"></div>
 	</div>
 </div>

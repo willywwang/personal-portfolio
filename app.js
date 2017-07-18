@@ -5,6 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var flash = require('express-flash');
 
 require('./models/models');
 //var mongoose = require('mongoose');
@@ -13,6 +15,7 @@ require('./models/models');
 var index = require('./routes/index');
 var contact = require('./routes/contact')
 var blog = require('./routes/blog');
+var auth = require('./routes/auth')(passport);
 
 var app = express();
 
@@ -28,10 +31,20 @@ app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 app.use('/', index);
 app.use('/contact', contact);
 app.use('/blog', blog);
-app.use('/*', index);
+app.use('/auth', auth);
+
+app.use('/blog*', index);
+app.use('/login*', index);
+
+var initPassport = require('./passport-init');
+initPassport(passport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +63,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
 
   if (err.status === 404) {
-  	res.render('404', { title: 'Will Wang - CPSC' });
+  	res.render('status-error', { title: 'Will Wang - CPSC', statusCode: 404, errorMessage: 'Looks like you ventured into an uncreated area!' });
   } else {
   	res.render('index');
   }

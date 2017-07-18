@@ -70,6 +70,14 @@ a, a:hover, a:active, a:visited, a:focus {
 	text-align: center;
 }
 
+.footer-blog {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	font-family: 'Rajdhani', sans-serif;
+	text-align: center;
+}
+
 .no-padding-margin {
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
@@ -93,6 +101,17 @@ a, a:hover, a:active, a:visited, a:focus {
 	height: 45px;
 	width: 100%;
 	z-index: 1;
+}
+
+.phone-seperator {
+	height: 30px;
+	width: 100%;
+}
+
+.form-auth {
+	max-width: 80%;
+	padding: 5px;
+	margin: 0 auto;
 }
 
 /*
@@ -418,8 +437,33 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 /*
+* Bootstrap card imitation
+*/
+
+.card {
+	border: #00B7FF 1px solid;
+}
+
+.card-block {
+	padding-left: 15px;
+	text-align: left;
+}
+
+.card-date {
+	float: right;
+	padding-right: 15px;
+}
+
+/*
 * Media queries
 */
+
+@media screen and (min-width: 0px) and (max-width: 991px) {
+	.phone-seperator {
+		height: 60px;
+		width: 100%;
+	}
+}
 
 @media screen and (min-width: 0px) and (max-width: 766px) {
 	.project-panel-info {

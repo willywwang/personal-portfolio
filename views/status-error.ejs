@@ -14,10 +14,10 @@
 		<div class="col-xs-2"></div>
 		<div class="col-xs-8">
 			<div class='error-template'>
-				<h1>404</h1>
-				<h4>Looks like you ventured into an uncreated area!</h4>
+				<h1><%= statusCode %></h1>
+				<h4><%= errorMessage %></h4>
 				<br/>
-				<button type="button" class="btn btn-default btn-error"><a href="/">Return to home page</a></button>
+				<a href="/" class="btn btn-default btn-error">Return to home page</a></button>
 			</div>
 		</div>
 		<div class="col-xs-2"></div>

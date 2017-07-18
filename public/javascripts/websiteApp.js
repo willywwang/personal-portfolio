@@ -13,6 +13,14 @@ app.config(function($routeProvider, $locationProvider)	 {
 		templateUrl: 'blog.html',
 		controller: 'blogController'
 	})
+	.when('/blog/post/:postId', {
+		templateUrl: 'blog.post.html',
+		controller: 'blogController'
+	})
+	.when('/login', {
+		templateUrl: 'login.html',
+		controller: 'authController'
+	})
 	.otherwise({redirectTo: '/'})
 
 	$locationProvider.html5Mode(true);
