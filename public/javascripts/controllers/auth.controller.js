@@ -1,5 +1,5 @@
 angular.module('websiteApp')
-.controller('authController', ['$scope', '$rootScope', '$http', '$window', '$location', '$uibModal', 'authProvider'
+.controller('authController', ['$scope', '$rootScope', '$http', '$window', '$location', '$uibModal', 'authProvider',
 	function($scope, $rootScope, $http, $window, $location, $uibModal, authProvider) {
 		$scope.showErrors = false;
 		$scope.successfulReset = false;

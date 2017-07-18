@@ -1,4 +1,4 @@
-angular.module('sampleApp')
+angular.module('websiteApp')
 .factory('authProvider', ['$window',
    function($window) {
     var _setUser = function(username, cookie) {
