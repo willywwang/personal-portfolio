@@ -1,8 +1,12 @@
 ## TODO: 
 - Blog page - design framework + implement
-- Secure RESTful APIs
 
 ## Change Log
+July 17, 2017:
+- Started implementation + design work on Blog page
+- First deploy to Heroku was successful
+- REST APIs made secure
+
 July 14, 2017:
 - Landing page updated, fully responsive
 - Experience, about, projects all fully implemented and responsive
