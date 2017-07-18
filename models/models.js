@@ -1,13 +1,22 @@
 var mongoose = require('mongoose');
 
 var postSchema = new mongoose.Schema({
-	post_id: Number,
+	postId: Number,
 	title: String,
-	type: String,
+	category: String,
 	summary: String,
 	post: String,
 	created_by: String,
 	created_on: { type: Date, default: Date.now }
 });
 
+var userSchema = new mongoose.Schema({
+	username: String,
+	username_lower: String,
+	password: String,
+	cookie: String
+});
+
+
 mongoose.model('Post', postSchema);
+mongoose.model('User', userSchema);

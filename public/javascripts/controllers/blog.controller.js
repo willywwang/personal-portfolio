@@ -9,7 +9,7 @@ angular.module('websiteApp')
 		// todo: store in mongodb
 		var defaultBlogPost = {
 			title: "Coming Soon",
-			type: "TBD",
+			category: "TBD",
 			summary: "",
 			post: "",
 			created_by: "Will",

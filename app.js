@@ -9,8 +9,8 @@ var passport = require('passport');
 var flash = require('express-flash');
 
 require('./models/models');
-//var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/sample-app');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/website-app');
 
 var index = require('./routes/index');
 var contact = require('./routes/contact')
@@ -55,15 +55,14 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
 
   if (err.status === 404) {
-  	res.render('status-error', { title: 'Will Wang - CPSC', statusCode: 404, errorMessage: 'Looks like you ventured into an uncreated area!' });
+  	res.render('status-error', { 
+      title: 'Will Wang - CPSC', 
+      statusCode: 404, 
+      errorMessage: 'Looks like you ventured into an uncreated area!' 
+    });
   } else {
   	res.render('index');
   }

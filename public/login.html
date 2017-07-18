@@ -11,19 +11,9 @@
 				{{error_message}}
 			</div>
 		</div>
-		<div class="panel panel-success" ng-show="successfulReset">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<span>Successfully Updated</span>
-				</h4>
-			</div>
-			<div class="panel-body">
-				{{success_message}}
-			</div>
-		</div>
 		<h2>Login</h2>
-		<label>Username/Email</label>
-		<input type="username" ng-model="user.username" placeholder="Username or Email" class="form-control" maxlength='40' required><br/>
+		<label>Username</label>
+		<input type="username" ng-model="user.username" placeholder="Username" class="form-control" maxlength='40' required><br/>
 		<label>Password</label>
 		<input type="password" ng-model="user.password" placeholder="Password" class="form-control" maxlength='20' required><br/>
 		<input type="submit" value="Log in" class="btn btn-primary"/>
