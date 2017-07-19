@@ -14,8 +14,8 @@
 				<a href="#" ng-click="updatePost(post)" ng-show="isAuthenticated" class="btn btn-default">Update Post</a>
 				<a href="#" ng-click="openDeleteModal(post)" ng-show="isAuthenticated" class="btn btn-danger">Delete Post</a>
 			</div>
-			<br/>
 		</div>
+		<div class="action-seperator"></div>
 	</div>
 	<div class="hidden-xs col-sm-4 col-md-3 no-padding-margin">
 		<div class="col-sm-1"></div>
@@ -31,7 +31,7 @@
                         ng-change="onCategoryFilterChanged()">
                     <option value="" />
                     <option ng-repeat="category in categories">
-                        {{category}}
+                        {{category._id}}
                     </option>
                 </select>
                 <br/>
@@ -41,11 +41,11 @@
                         multiple
                         class="filter"
                         ng-model="filters.keyword"
-                        data-placeholder="All Key Words"
+                        data-placeholder="All Keywords"
                         ng-change="onKeyWordFilterChanged()">
                     <option value="" />
                     <option ng-repeat="keyword in keywords">
-                        {{keyword}}
+                        {{keyword._id}}
                     </option>
                 </select>
 			</div>

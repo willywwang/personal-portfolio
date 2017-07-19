@@ -17,9 +17,7 @@ router.use('/post', isAuthenticated);
 router.route('/all')
 .get(function(req, res) {
 	if (!req.body.filters) {
-		console.log('asdf');
 		Post.find().sort({ post_id: -1 }).exec(function(err, data) {
-			console.log('asdf');
 			if (err) {
 				console.log(err);
 				return res.send({state: 'failure'});
@@ -49,6 +47,35 @@ router.route('/all')
 			}
 		});
 	}
+});
+
+router.route('/all/category')
+.get(function(req, res) {
+    Post.aggregate(
+    [
+        { '$group': { '_id': '$category' }},
+        { '$sort': { 'category': 1 }}
+    ])
+    .exec(function(err,categories) {
+		if (err) {
+			console.log(err);
+			return res.send({state: 'failure'});
+		} else {
+			return res.send({state: 'success', categories: categories});
+		}
+    });
+});
+
+router.route('/all/keywords')
+.get(function(req, res) {
+	Post.find().select({ keyWords : 1 }).exec(function(err, keywords) {
+		if (err) {
+			console.log(err);
+			return res.send({state: 'failure'});
+		} else {
+			return res.send({state: 'success', keywords: keywords});
+		}
+	});
 });
 
 

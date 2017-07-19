@@ -6,6 +6,10 @@ angular.module('websiteApp')
 			category: [],
 			keyword:[]
 		};
+
+		$scope.categories = [];
+		$scope.keywords = [];
+
 		$scope.showErrors = false;
 		$scope.date = new Date();
 
@@ -18,7 +22,47 @@ angular.module('websiteApp')
 				} else {
 					var errorBlogPost = {
 						postId: 0,
-						title: "An error occured. Pleaes try again later",
+						title: "An error occured retriving blog posts. Please try again later",
+						summary: "",
+						post: "",
+						created_by: "System",
+						keyWords: ["Error", "Bug"],
+						created_on: $scope.date
+					}
+
+					$scope.blogPosts.push(errorBlogPost);
+				}
+			})
+		})();
+
+		(function loadCategories() {
+			$http.get('/blog/all/category').success(function(data) {
+				if(data.state === 'success') {
+					$scope.categories = data.categories;
+				} else {
+					var errorBlogPost = {
+						postId: 0,
+						title: "An error occured retrieving cateogry filter. Please try again later",
+						summary: "",
+						post: "",
+						created_by: "System",
+						keyWords: ["Error", "Bug"],
+						created_on: $scope.date
+					}
+
+					$scope.blogPosts.push(errorBlogPost);
+				}
+			})
+		})();
+
+		(function loadKeywords() {
+			$http.get('/blog/all/keywords').success(function(data) {
+				if(data.state === 'success') {
+					$scope.keywords = data.keyWords;
+				} else {
+					var errorBlogPost = {
+						postId: 0,
+						title: "An error occured retrieving keywords filter. Pleaes try again later",
 						summary: "",
 						post: "",
 						created_by: "System",
