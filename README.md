@@ -1,7 +1,14 @@
 ## TODO: 
 - Blog page - design framework + implement
+- Filtering on blog page
+- Minor clean up of TODOs
+- Blog post removal confirmation
 
 ## Change Log
+July 18, 2017: 
+- Majority of back-end of blog implemented
+- Filtering still needed to be done
+
 July 17, 2017:
 - Started implementation + design work on Blog page
 - First deploy to Heroku was successful

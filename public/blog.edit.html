@@ -1,0 +1,35 @@
+<div class="phone-seperator"></div>
+<div class="col-xs-offset-2 col-xs-8">
+	<form class="form-auth" ng-submit="submit()">
+		<div class="panel panel-danger" ng-show="showErrors">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<span>Post Error</span>
+				</h4>
+			</div>
+			<div class="panel-body">
+				{{error_message}}
+			</div>
+		</div>
+		<h2>Post Update</h2>
+		<label>Title</label>
+		<input type="title" ng-model="post.title" placeholder="Title" class="form-control" required>
+		<br/>
+		<label>Category</label>
+		<input type="category" ng-model="post.category" placeholder="Category" class="form-control" required>
+		<br/>
+		<label>Summary</label>
+		<input type="summary" ng-model="post.summary" placeholder="Summary" class="form-control">
+		<br/>
+		<label>Post</label>
+		<textarea id="formMessage" ng-model="post.post" placeholder="Enter post" class="form-control"></textarea>
+		<br/>
+		<label>Key Words (Seperated by commas)</label>
+		<input type="keyWord" ng-model="keyWords" placeholder="Key Words" class="form-control">
+		<br/>
+		<label>Created By</label>
+		<input type="createdBy" ng-model="post.created_by" placeholder="Created By" class="form-control" required>
+		<br/>
+		<input type="submit" value="Submit" class="btn btn-primary"/>
+	</form>
+</div>

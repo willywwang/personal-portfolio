@@ -9,7 +9,7 @@ function isAuthenticated(req, res, next) {
 		return next();
 	}
 
-	return res.render('status-error', { title: 'Will Wang - CPSC', statusCode: 401, errorMessage: 'You are unauthorized to view this page.' });
+	return res.send({state: 'failure', errorMessage: 'You are unauthorized to view this page.' });
 }
 
 router.use('/post', isAuthenticated);
@@ -17,14 +17,16 @@ router.use('/post', isAuthenticated);
 router.route('/all')
 .get(function(req, res) {
 	if (!req.body.filters) {
-		Post.find({}.sort({ post_id: -1 }).exec(function(err, data) {
+		console.log('asdf');
+		Post.find().sort({ post_id: -1 }).exec(function(err, data) {
+			console.log('asdf');
 			if (err) {
 				console.log(err);
 				return res.send({state: 'failure'});
 			} else {
 				return res.send({state: 'success', posts: data});
 			}
-		}));
+		});
 	} else {
 		var startDateFilter = new Date();
 		var endDateFilter = new Date();
@@ -58,7 +60,7 @@ router.route('/find/post/:postId')
 		} else if (!post) {
 			return res.send({state: 'failure'});
 		} else {
-			return res.send({state: 'success', data: post});
+			return res.send({state: 'success', post: post});
 		}
 	})
 })
@@ -71,13 +73,28 @@ router.route('/post/add')
 		}
 
 		var newPost = new Post();
-		newPost = {
-			title: req.body.title,
-			category: req.body.category,
-			summary: req.body.summary,
-			post: req.body.post,
-			created_by: req.body.created_by
-		};
+
+		if (req.body.title) {
+			newPost.title = req.body.title.trim();
+		}
+
+		if (req.body.category) {
+			newPost.category = req.body.category.trim();
+		}
+
+		if (req.body.summary) {
+			newPost.summary = req.body.summary.trim();
+		}
+
+		if (req.body.post) {
+			newPost.post = req.body.post.trim();
+		}
+
+		if (req.body.created_by) {
+			newPost.created_by = req.body.created_by.trim();
+		}
+
+		newPost.keyWords = req.body.keyWords;
 
 		if (!post) {
 			newPost.postId = 0;
@@ -111,6 +128,7 @@ router.route('post/update/:postId')
 			post.summary = req.body.summary;
 			post.post = req.body.post;
 			post.created_by = req.body.created_by;
+			post.keyWords = req.body.keyWords;
 
 			post.save(function(err) {
 				if (err) {

@@ -1,4 +1,4 @@
-var app = angular.module('websiteApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'chart.js']);
+var app = angular.module('websiteApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'chart.js', 'ui.select2', 'underscore']);
 
 app.run(['$rootScope', '$http', '$window', '$location',
 	function($rootScope, $http, $window, $location) {
@@ -16,6 +16,14 @@ app.config(function($routeProvider, $locationProvider)	 {
 	.when('/blog/post/:postId', {
 		templateUrl: 'blog.post.html',
 		controller: 'blogController'
+	})
+	.when('/blog/add/post/', {
+		templateUrl: 'blog.edit.html',
+		controller: 'postController'
+	})
+	.when('/blog/edit/post/:postid', {
+		templateUrl: 'blog.edit.html',
+		controller: 'postController'
 	})
 	.when('/login', {
 		templateUrl: 'login.html',

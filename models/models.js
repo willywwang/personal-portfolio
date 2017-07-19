@@ -7,6 +7,7 @@ var postSchema = new mongoose.Schema({
 	summary: String,
 	post: String,
 	created_by: String,
+	keyWords: Array,
 	created_on: { type: Date, default: Date.now }
 });
 

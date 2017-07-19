@@ -10,7 +10,7 @@ var flash = require('express-flash');
 
 require('./models/models');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/website-app');
+mongoose.connect('mongodb://127.0.0.1/website-app');
 
 var index = require('./routes/index');
 var contact = require('./routes/contact')
@@ -26,10 +26,11 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser(process.env.sessionSecret));
+app.use(cookieParser('asdf'));
 app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
+app.use('/components', express.static(path.join(__dirname, 'bower_components')));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -64,7 +65,11 @@ app.use(function(err, req, res, next) {
       errorMessage: 'Looks like you ventured into an uncreated area!' 
     });
   } else {
-  	res.render('index');
+  	res.render('status-error', {
+      title: 'Will Wang - CPSC', 
+      statusCode: 500,
+      errorMessage: 'Oops, looks like something went wrong.'
+    });
   }
 });
 

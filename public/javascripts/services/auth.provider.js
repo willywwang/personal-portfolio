@@ -2,19 +2,28 @@ angular.module('websiteApp')
 .factory('authProvider', ['$window',
    function($window) {
     var _setUser = function(username, cookie) {
-        $window.localStorage.setItem('user', username);
-        $window.localStorage.setItem('user', cookie);
+        $window.sessionStorage.setItem('user', username);
+        $window.sessionStorage.setItem('cookie', cookie);
     };
 
     var _getUser = function() {
-        var user = $window.localStorage.getItem('user');
-        var cookie = $window.localStorage.getItem('cookie');
-        return { user: user, cookie: cookie };
+        var user = $window.sessionStorage.getItem('user');
+        var cookie = $window.sessionStorage.getItem('cookie');
+
+        if (!user) {
+            user = "";
+        }
+
+        if (!cookie) {
+            cookie = "";
+        }
+
+        return { username: user, cookie: cookie };
     }
 
     var _logout = function() {
-        $window.localStorage.removeItem('user');
-        $window.localStorage.removeItem('cookie');
+        $window.sessionStorage.removeItem('user');
+        $window.sessionStorage.removeItem('cookie');
     }
 
     return {
