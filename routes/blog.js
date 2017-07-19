@@ -12,41 +12,18 @@ function isAuthenticated(req, res, next) {
 	return res.send({state: 'failure', errorMessage: 'You are unauthorized to view this page.' });
 }
 
-//router.use('/post', isAuthenticated);
+router.use('/post', isAuthenticated);
 
 router.route('/all')
-.get(function(req, res) {
-	if (!req.body.filters) {
-		Post.find().sort({ postId: -1 }).exec(function(err, data) {
-			if (err) {
-				console.log(err);
-				return res.send({state: 'failure'});
-			} else {
-				return res.send({state: 'success', posts: data});
-			}
-		});
-	} else {
-		var startDateFilter = new Date();
-		var endDateFilter = new Date();
-		var categoryFilter = [];
-
-		if (req.body.filters.date.length > 0) {
-			//override dates
+.post(function(req, res) {
+	Post.find().sort({ postId: -1 }).exec(function(err, data) {
+		if (err) {
+			console.log(err);
+			return res.send({state: 'failure'});
+		} else {
+			return res.send({state: 'success', posts: data});
 		}
-
-		if (req.body.filters.category.length > 0) {
-			categoryFilter = req.body.filters.category;
-		}
-		// todo: filter by date
-		Post.find({ category: {$in: categoryFilter}}).sort({ postId: -1 }).exec(function(err, data) {
-			if (err) {
-				console.log(err);
-				return res.send({state: 'failure'});
-			} else {
-				return res.send({state: 'success', posts: data});
-			}
-		});
-	}
+	});
 });
 
 router.route('/all/category')

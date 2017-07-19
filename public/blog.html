@@ -4,7 +4,7 @@
 		<!-- buttons -->
 	</div>
 	<div class="col-xs-12 col-sm-8 col-md-9">
-		<div ng-repeat="post in blogPosts">
+		<div ng-repeat="post in filteredBlogPosts">
 			<div class="card text-center">
 				<div class="card-block">
 					<p class="card-date text-muted">{{post.created_on | date: mediumDate }}</p>
@@ -24,57 +24,27 @@
 		<div class="filter-section affix">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<div class="filters">
-					<h4>Filter By</h4>
-					<label>Category</label>
-					<select ui-select-2="select2Options"
-					multiple
-					class="filter"
-					ng-model="filters.category"
-					data-placeholder="All Categories"
-					ng-change="onCategoryFilterChanged()">
-					<option value="" />
-					<option ng-repeat="category in categories">
-						{{category._id}}
-					</option>
-				</select>
+			<div class="about">
+				<h4>About</h4>
+				<p>I'm Will a 3rd year computer science major at UBC with several years of experience in web and android development who is passionate about researching the latest technologies, playing video games, and exploring the city.
+					<br/>
+					<br/>
+					Come join me, a relatively new developer, as I dwelve into the latest gadgets, talk about my experiences in the software industry, and emerging coding practices.</p>
+				</div>
 				<br/>
-				<br/>
-				<label>Keyword</label>
-				<select ui-select-2="select2Options"
-				multiple
-				class="filter"
-				ng-model="filters.keyword"
-				data-placeholder="All Keywords"
-				ng-change="onKeyWordFilterChanged()">
-				<option value="" />
-				<option ng-repeat="keyword in keywords">
-					{{keyword._id}}
-				</option>
-			</select>
-		</div>
-		<br/>
-		<div class="about">
-			<h4>About</h4>
-			<p>I'm Will a 3rd year computer science major at UBC with several years of experience in web and android development who is passionate about researching the latest technologies, playing video games, and exploring the city.
-				<br/>
-				<br/>
-				Come join me, a relatively new developer, as I dwelve into the latest gadgets, talk about my experiences in the software industry, and emerging coding practices.</p>
-			</div>
-			<br/>
-			<div class="actions">
-				<button class="btn btn-primary btn-submit" ng-click="subscribe()"><i class="fa fa-plus fa-sub"></i>&nbsp;Subscribe</button>
-				<div class="action-seperator"></div>
-				<button class="btn btn-success btn-transparent" id="btnSuccessTransparent" ng-click="addPost()" ng-show="isAuthenticated">Add Post</button>
+				<div class="actions">
+					<button class="btn btn-primary btn-submit" ng-click="subscribe()"><i class="fa fa-plus fa-sub"></i>&nbsp;Subscribe</button>
+					<div class="action-seperator"></div>
+					<button class="btn btn-success btn-transparent" id="btnSuccessTransparent" ng-click="addPost()" ng-show="isAuthenticated">Add Post</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="footer-blog">
-	<div class="col-xs-2"></div>
-	<div class="col-xs-8">
-		<p>Copyright &#9400 {{date | date:'yyyy'}} William Wang. All assets belong to their respective owners.</p>		
+	<div class="footer-blog">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<p>Copyright &#9400 {{date | date:'yyyy'}} William Wang. All assets belong to their respective owners.</p>		
+		</div>
+		<div class="col-xs-2"></div>
 	</div>
-	<div class="col-xs-2"></div>
-</div>
 </div>

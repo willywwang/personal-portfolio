@@ -2,22 +2,30 @@ angular.module('websiteApp')
 .controller('blogController', ['$scope', '$rootScope', '$uibModal', '$http', '$location', '$window', 'authProvider',
 	function($scope, $rootScope, $uibModal, $http, $location, $window, authProvider) {
 		$scope.blogPosts = [];
-		$scope.filters = {
-			category: [],
-			keyword:[]
-		};
-
-		$scope.categories = [];
-		$scope.keywords = [];
+		$scope.filteredBlogPosts = [];
 
 		$scope.showErrors = false;
 		$scope.date = new Date();
 
-		function loadPosts() {
-			// filter first
 
-			$http.get('/blog/all').success(function(data) {
+		function filterPosts() {
+			$scope.filteredBlogPosts = _.chain($scope.blogPosts)
+			.filter(filterByCategory)
+			.value();
+		}
+
+		function filterByCategory(post) {
+			if ($scope.updatedFilters.category.length === 0){
+				return true;
+			}
+
+			return _.contains($scope.updatedFilters.category, post.category);
+		}
+
+		function loadPosts() {
+			$http.post('/blog/all').success(function(data) {
 				if(data.state === 'success') {
+					$scope.filteredBlogPosts = data.posts;
 					$scope.blogPosts = data.posts;
 				} else {
 					var errorBlogPost = {
@@ -30,7 +38,7 @@ angular.module('websiteApp')
 						created_on: $scope.date
 					}
 
-					$scope.blogPosts.push(errorBlogPost);
+					$scope.filteredBlogPosts.push(errorBlogPost);
 				}
 			})
 		};
@@ -50,7 +58,7 @@ angular.module('websiteApp')
 						created_on: $scope.date
 					}
 
-					$scope.blogPosts.push(errorBlogPost);
+					$scope.filteredBlogPosts.push(errorBlogPost);
 				}
 			})
 		};
@@ -58,7 +66,7 @@ angular.module('websiteApp')
 		function loadKeywords() {
 			$http.get('/blog/all/keywords').success(function(data) {
 				if(data.state === 'success') {
-					$scope.keywords = data.keyWords;
+					$scope.keywords = data.keywords;
 				} else {
 					var errorBlogPost = {
 						postId: 0,
@@ -70,15 +78,15 @@ angular.module('websiteApp')
 						created_on: $scope.date
 					}
 
-					$scope.blogPosts.push(errorBlogPost);
+					$scope.filteredBlogPosts.push(errorBlogPost);
 				}
 			})
 		};
 
 		function loadData() {
 			loadPosts();
-			loadKeywords();
-			loadCategories();
+			//loadKeywords();
+			//loadCategories();
 		}
 
 		loadData();
@@ -105,5 +113,13 @@ angular.module('websiteApp')
 			$http.get('/blog/post/remove/' + post.postId).success(function(data) {
 				loadData();
 			});
+		}
+
+		$scope.onCategoryFilterChanged = function() {
+			$scope.updatedFilters.category = _.map($scope.filters.category, function(category) {
+				return category.trim();
+			});
+
+			filterPosts();
 		}
 	}]);
