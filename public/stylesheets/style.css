@@ -484,6 +484,10 @@ a, a:hover, a:active, a:visited, a:focus {
 	width: 100%;
 }
 
+.filter-section {
+	padding-right: 60px;
+}
+
 /*
 * Media queries
 */

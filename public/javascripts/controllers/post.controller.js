@@ -6,8 +6,8 @@ angular.module('websiteApp')
 		$scope.keyWords = "";
 
 		function retrieveAndLoadPost() {
-			if ($routeParams.postId) {
-				$http.get('blog/find/post/' + $routeParams.postId).then(function(data) {
+			if ($routeParams.postid) {
+				$http.get('blog/find/post/' + $routeParams.postid).success(function(data) {
 					if (data.state === 'success') {
 						$scope.post = data.post;
 
@@ -29,7 +29,7 @@ angular.module('websiteApp')
 			}
 
 			if ($scope.post.postId) {
-				$http.post('/blog/post/update/' + $scope.post.postId).then(function(data) {
+				$http.post('/blog/post/update/' + $scope.post.postId, $scope.post).success(function(data) {
 					if (data.state === 'failure') {
 						$scope.showErrors = true;
 

@@ -13,7 +13,7 @@ angular.module('websiteApp')
 		$scope.showErrors = false;
 		$scope.date = new Date();
 
-		(function loadPosts() {
+		function loadPosts() {
 			// filter first
 
 			$http.get('/blog/all').success(function(data) {
@@ -33,9 +33,9 @@ angular.module('websiteApp')
 					$scope.blogPosts.push(errorBlogPost);
 				}
 			})
-		})();
+		};
 
-		(function loadCategories() {
+		function loadCategories() {
 			$http.get('/blog/all/category').success(function(data) {
 				if(data.state === 'success') {
 					$scope.categories = data.categories;
@@ -53,9 +53,9 @@ angular.module('websiteApp')
 					$scope.blogPosts.push(errorBlogPost);
 				}
 			})
-		})();
+		};
 
-		(function loadKeywords() {
+		function loadKeywords() {
 			$http.get('/blog/all/keywords').success(function(data) {
 				if(data.state === 'success') {
 					$scope.keywords = data.keyWords;
@@ -73,7 +73,15 @@ angular.module('websiteApp')
 					$scope.blogPosts.push(errorBlogPost);
 				}
 			})
-		})();
+		};
+
+		function loadData() {
+			loadPosts();
+			loadKeywords();
+			loadCategories();
+		}
+
+		loadData();
 
 		$scope.isAuthenticated = false;
 
@@ -95,7 +103,7 @@ angular.module('websiteApp')
 
 		$scope.deletePost = function(post) {
 			$http.get('/blog/post/remove/' + post.postId).success(function(data) {
-				return;
-			})
+				loadData();
+			});
 		}
 	}]);

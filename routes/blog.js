@@ -12,12 +12,12 @@ function isAuthenticated(req, res, next) {
 	return res.send({state: 'failure', errorMessage: 'You are unauthorized to view this page.' });
 }
 
-router.use('/post', isAuthenticated);
+//router.use('/post', isAuthenticated);
 
 router.route('/all')
 .get(function(req, res) {
 	if (!req.body.filters) {
-		Post.find().sort({ post_id: -1 }).exec(function(err, data) {
+		Post.find().sort({ postId: -1 }).exec(function(err, data) {
 			if (err) {
 				console.log(err);
 				return res.send({state: 'failure'});
@@ -38,7 +38,7 @@ router.route('/all')
 			categoryFilter = req.body.filters.category;
 		}
 		// todo: filter by date
-		Post.find({ category: {$in: categoryFilter}}).sort({ post_id: -1 }).exec(function(err, data) {
+		Post.find({ category: {$in: categoryFilter}}).sort({ postId: -1 }).exec(function(err, data) {
 			if (err) {
 				console.log(err);
 				return res.send({state: 'failure'});
@@ -90,11 +90,11 @@ router.route('/find/post/:postId')
 			return res.send({state: 'success', post: post});
 		}
 	})
-})
+});
 
 router.route('/post/add')
 .post(function(req, res) {
-	Post.findOne({}).sort({ post_id: -1 }).exec(function(err, post) {
+	Post.findOne({}).sort({ postId: -1 }).exec(function(err, post) {
 		if (err) {
 			return res.send({state: 'failure'})
 		}
@@ -140,7 +140,7 @@ router.route('/post/add')
 	});
 });
 
-router.route('post/update/:postId')
+router.route('/post/update/:postId')
 .post(function(req, res) {
 	Post.findOne({ postId: req.params.postId }, function(err, post) {
 		if (err) {
@@ -165,10 +165,10 @@ router.route('post/update/:postId')
 				return res.send({state: 'success'});
 			})
 		}
-	})
+	});
 });
 
-router.route('post/remove/:postId')
+router.route('/post/remove/:postId')
 .get(function(req, res) {
 	Post.remove({ postId: req.params.postId}, function(err) {
 		if (err) {
@@ -176,6 +176,6 @@ router.route('post/remove/:postId')
 		}
 		return res.send({state:'success'});
 	});
-})
+});
 
 module.exports = router;
