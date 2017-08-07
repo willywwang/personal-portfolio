@@ -1,0 +1,31 @@
+<div class="modal-header">
+	<h2 class="modal-title">Subscribe</h2>
+</div>
+<div class="modal-body">
+	<div class="panel panel-danger" ng-show="showErrors">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<span>{{subscriptionError}}</span>
+			</h4>
+		</div>
+	</div>
+	<div class="panel panel-success" ng-show="showSuccess">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<span>Subscription completed!</span>
+			</h4>
+		</div>
+	</div>
+	<p ng-show="!didUserSubmit && !showSuccess">Subscribe for news about the latest gadgets, technologies that are emerging in the software industry, and about the challenges a new developer experience in the software industry and how to overcome them.</p>
+	<i class="fa fa-spinner fa-spin" ng-show="didUserSubmit"></i>
+	<form ng-submit="subscribe()" ng-hide="showSuccess || didUserSubmit">
+		<br/>
+		<label>Email</label>
+		<input type="email" ng-model="email" placeholder="Enter email" class="form-control" maxlength='40' required>
+		<br/>
+		<div class="modal-footer">
+			<input type="submit" value="Submit" class="btn btn-primary btn-contact-submit"/>
+			<input type="close" value="Close" ng-click="close()" class="btn btn-default btn-contact-close"/>
+		</div>
+	</form>
+</div>

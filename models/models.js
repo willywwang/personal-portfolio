@@ -18,6 +18,14 @@ var userSchema = new mongoose.Schema({
 	cookie: String
 });
 
+var endUserSchema = new mongoose.Schema({
+	email: String,
+	email_lower: String,
+	isSubscribed: Boolean,
+	unsubscribeToken: String
+})
+
 
 mongoose.model('Post', postSchema);
 mongoose.model('User', userSchema);
+mongoose.model('EndUser', endUserSchema);

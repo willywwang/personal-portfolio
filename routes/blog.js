@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');   
 var Post = mongoose.model('Post');
+var EndUser = mongoose.model('EndUser');
+var crypto = require('crypto');
 var express = require('express');
 var nodemailer = require('nodemailer');
 var router = express.Router();
@@ -28,19 +30,19 @@ router.route('/all')
 
 router.route('/all/category')
 .get(function(req, res) {
-    Post.aggregate(
-    [
-        { '$group': { '_id': '$category' }},
-        { '$sort': { 'category': 1 }}
-    ])
-    .exec(function(err,categories) {
+	Post.aggregate(
+		[
+		{ '$group': { '_id': '$category' }},
+		{ '$sort': { 'category': 1 }}
+		])
+	.exec(function(err,categories) {
 		if (err) {
 			console.log(err);
 			return res.send({state: 'failure'});
 		} else {
 			return res.send({state: 'success', categories: categories});
 		}
-    });
+	});
 });
 
 router.route('/all/keywords')
@@ -112,6 +114,7 @@ router.route('/post/add')
 				return res.send({state: 'failure'});
 			}
 
+			// TODO: Send email to subscribers
 			return res.send({state: 'success'});
 		});
 	});
@@ -154,5 +157,105 @@ router.route('/post/remove/:postId')
 		return res.send({state:'success'});
 	});
 });
+
+router.route('/subscribe')
+.post(function(req, res) {
+	EndUser.findOne({ email_lower: req.body.email_lower, isSubscribed: true}, function(err, user) {
+		if (err) {
+			return res.send({state: 'failure', message: 'An unknown error occured. Please try again later.'});
+		}
+
+		if (user) {
+			return res.send({state: 'failure', message: 'This email is already subscribed.'});
+		} else {
+			crypto.randomBytes(20, function(err, buf) {
+				var token = buf.toString('hex');
+
+				var endUser = new EndUser();
+				endUser.email = req.body.email;
+				endUser.email_lower = req.body.email_lower;
+				endUser.isSubscribed = true;
+				endUser.unsubscribeToken = token;
+
+				endUser.save(function(err) {
+					if (err) {
+						return res.send({state: 'failure', message: 'An unknown error occured. Please try again later.'});
+					} else {
+						var transporter = nodemailer.createTransport({
+							service: 'Gmail',
+							auth: {
+								user: 'wang.yw.william@gmail.com',
+								pass: process.env.emailPassword
+							}
+						});	
+
+						var mailOptions = {
+							from: 'donotreply@willwang.com',
+							to: endUser.email,
+							subject: 'Subscription to Will\'s Blog Complete',
+							text: 'You\'ve subscribed to my blog! If you wish to unsubscribe at any time please click this link: ' +
+							'https://' + req.headers.host + '/blog/unsubscribe/' + token
+						};
+
+						transporter.sendMail(mailOptions, function(err, info){
+							if (err) {
+								// silently fail
+							} 
+							
+							return res.send({
+								state: 'success'
+							});
+						});
+					}
+				});
+			});
+		}
+	})
+});
+
+router.route('unsubscribe/:token')
+.get(function(req, res) {
+	var userEmail = "";
+	EndUser.findOne({ unsubscribeToken: req.params.token}, function(err, user) {
+		if (err) {
+			return res.send({state: 'failure', message: 'An unknown error occured. Please try again later.'});
+		}
+
+		if (!user) {
+			return res.send({state: 'failure', message: 'User not found.'});
+		} else {
+			userEmail = user.email;
+
+			EndUser.remove({ unsubscribeToken: req.params.token}, function(err) {
+				if (err) {
+					return res.send({state: 'failure', message: 'An unknown error occured. Please try again later.'});
+				} else {
+					var transporter = nodemailer.createTransport({
+						service: 'Gmail',
+						auth: {
+							user: 'wang.yw.william@gmail.com',
+							pass: process.env.emailPassword
+						}
+					});	
+
+					var mailOptions = {
+						from: 'donotreply@willwang.com',
+						to: endUser.email,
+						subject: 'Successfully unsubscribed from Will\'s Blog',
+						text: 'You\'ve successfully unsubscribed from my blog. We hope to see you again.'
+					};
+
+					transporter.sendMail(mailOptions, function(err, info){
+						if (err) {
+							// silently fail
+						} 
+
+						return res.send({state: 'success', message: 'Successfully unsubscribed from my blog.'});
+					});
+				}
+			})
+		}
+	});
+})
 
 module.exports = router;

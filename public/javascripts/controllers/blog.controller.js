@@ -4,10 +4,16 @@ angular.module('websiteApp')
 		$scope.blogPosts = [];
 		$scope.filteredBlogPosts = [];
 
-		$scope.showErrors = false;
 		$scope.date = new Date();
 
+		$scope.subscribe = function() {
+			$uibModal.open({
+				templateUrl: 'subscribe.template.html',
+				controller: 'modalController'
+			});
+		};
 
+		// TODO: Add filtering
 		function filterPosts() {
 			$scope.filteredBlogPosts = _.chain($scope.blogPosts)
 			.filter(filterByCategory)
