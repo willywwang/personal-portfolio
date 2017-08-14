@@ -10,8 +10,9 @@ var flash = require('express-flash');
 
 require('./models/models');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/website-app');
-//mongoose.connect(process.env.MONGODB_URI);
+// local mongo environment
+//mongoose.connect('mongodb://127.0.0.1/website-app');
+mongoose.connect(process.env.MONGODB_URI);
 
 var index = require('./routes/index');
 var contact = require('./routes/contact')
@@ -27,7 +28,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser('asdf'));
+app.use(cookieParser(process.env.sessionSecret));
 app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
