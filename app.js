@@ -5,9 +5,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var http = require("http");
 var passport = require('passport');
 var flash = require('express-flash');
+var http = require('http');
 
 require('./models/models');
 var mongoose = require('mongoose');
