@@ -61,6 +61,11 @@ angular.module('websiteApp')
 						beginAtZero: true
 					}
 				}]
+			},
+			elements: {
+				point: {
+					radius: 0
+				}
 			}
 		};
 

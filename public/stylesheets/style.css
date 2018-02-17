@@ -70,6 +70,14 @@ a, a:hover, a:active, a:visited, a:focus {
 	text-align: center;
 }
 
+.footer-blog {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	font-family: 'Rajdhani', sans-serif;
+	text-align: center;
+}
+
 .no-padding-margin {
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
@@ -88,6 +96,37 @@ a, a:hover, a:active, a:visited, a:focus {
 	display: none;
 }
 
+.header-phone {
+	background-color: #f4f4f4;
+	height: 45px;
+	width: 100%;
+	z-index: 1;
+}
+
+.phone-seperator {
+	height: 30px;
+	width: 100%;
+}
+
+.form-auth {
+	max-width: 80%;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+.btn-transparent {
+	background-color: transparent;
+}
+
+.action-seperator {
+	width: 100%;
+	height: 10px;
+}
+
+#btnSuccessTransparent {
+	color: #5cb85c;
+}
+
 /*
 * Fonts
 */
@@ -96,6 +135,19 @@ a, a:hover, a:active, a:visited, a:focus {
 {
 	font-family: AdamCGPro;
 	src: url("../fonts/ADAM.CG.PRO.otf");
+}
+
+/*
+* Errors
+*/
+
+.error-template {
+	padding-top: 15%;
+	text-align: center;
+}
+
+.btn-error a {
+	color: black;
 }
 
 /*
@@ -123,6 +175,37 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 #menuListItem > a:hover {
+	color: #A9A9A9;
+}
+
+.div-phone-menu {
+	padding-top: 5px;
+}
+
+.btn-menu, .btn-menu:hover, .btn-menu:active, .btn-menu:visited, .btn-menu:focus {
+	outline: none;
+}
+
+.btn-menu:hover {
+	color: #bcbcbc;
+}
+
+.mobileMenu {
+	background: #f4f4f4
+}
+
+#phone-menu-item {
+	padding-top: 5px;
+	padding-left: 12px;
+	padding-bottom: 5px;
+	border-top: #dbdbdb 1px solid;
+}
+
+#phone-menu-item > a {
+	color: #808080;
+}
+
+#phone-menu-item > a:hover {
 	color: #A9A9A9;
 }
 
@@ -171,12 +254,15 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 
 .btn-contact-submit {
+	text-align: center;
 	width: 15%;
 }
 
 .btn-contact-close {
+	text-align: center;
 	width: 15%;
 }
+
 
 /*
 * Landing Page
@@ -212,11 +298,6 @@ a, a:hover, a:active, a:visited, a:focus {
 .landing-bottom-space {
 	text-align: center;
 	height: 21%;
-}
-
-.scrollAnimation {
-	position: relative;
-	left: 6%;
 }
 
 #landing-title {
@@ -346,12 +427,6 @@ a, a:hover, a:active, a:visited, a:focus {
 	border-radius: 50px;
 }
 
-.project-title {
-	text-align: left;
-	font-family: AdamCGPro;
-	top: -20%;
-}
-
 /*
 * Contact section on landing
 */
@@ -368,4 +443,110 @@ a, a:hover, a:active, a:visited, a:focus {
 .btn-submit {
 	background-color: transparent;
 	color: #006dcc;
+}
+
+.btn-submit:hover .fa-sub {
+	color: white;
+}
+
+/*
+* Bootstrap card imitation
+*/
+
+.card {
+	font-family: 'Rajdhani', sans-serif;
+	border: #00B7FF 1px solid;
+}
+
+.card-block {
+	padding-left: 15px;
+	text-align: left;
+}
+
+.card-date {
+	float: right;
+	padding-right: 15px;
+}
+
+/*
+* Blog
+*/
+
+.fa-plus {
+	color: #006dcc;
+}
+
+.actions {
+	text-align: left ;
+}
+
+.filter {
+	width: 100%;
+}
+
+.filter-section {
+	padding-right: 60px;
+}
+
+/*
+* Media queries
+*/
+
+@media screen and (min-width: 0px) and (max-width: 991px) {
+	.phone-seperator {
+		height: 60px;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 766px) {
+	.project-panel-info {
+		top: 0%;
+	}
+
+	.project-name {
+		font-size: 8vw;
+	}
+
+	.project-type {
+		font-size: 6vw;
+	}
+
+	.btn-contact-submit {
+		width: 22%;
+	}
+
+	.btn-contact-close {
+		width: 22%;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 424px) {
+	.btn-contact-submit {
+		width: 28%;
+	}
+
+	.btn-contact-close {
+		width: 28%;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 1025px) {
+	#divHeaderLogo {
+		padding-top: 20%;
+		height: 38%;
+	}
+
+	#divHeaderMenu {
+		padding-top: 15%;
+		height: 55%;
+	}
+
+	#divBottomLinks {
+		height: 7%;
+	}
+
+	.footer {
+		padding-top: 5%;
+	}
 }

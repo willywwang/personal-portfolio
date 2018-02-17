@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="images/website-logo.jpg"/>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<base href="/">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<div class='error-template'>
+				<h1><%= statusCode %></h1>
+				<h4><%= errorMessage %></h4>
+				<br/>
+				<a href="/" class="btn btn-default btn-error">Return to home page</a></button>
+			</div>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="phone-seperator"></div>
+	<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+		<!-- buttons -->
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-9">
+		<div ng-repeat="post in filteredBlogPosts">
+			<div class="card text-center">
+				<div class="card-block">
+					<p class="card-date text-muted">{{post.created_on | date: mediumDate }}</p>
+					<h3>{{post.category}}</h3>
+					<h2>{{post.title}}</h2>
+					<h4>{{post.summary}}</h4>
+					<a href="#" ng-show="post.post" class="btn btn-primary">Read Post</a>
+					<a href="#" ng-click="updatePost(post)" ng-show="isAuthenticated" class="btn btn-default">Update Post</a>
+					<a href="#" ng-click="deletePost(post)" ng-show="isAuthenticated" class="btn btn-danger">Delete Post</a>
+				</div>
+				<br/>
+			</div>
+			<div class="action-seperator"></div>
+		</div>
+	</div>
+	<div class="hidden-xs col-sm-4 col-md-3">
+		<div class="filter-section affix">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+			<div class="about">
+				<h4>About</h4>
+				<p>I'm Will a 3rd year computer science major at UBC with several years of experience in web and android development. I'm passionate about researching the latest technologies, playing video games, and exploring the city.
+					<br/>
+					<br/>
+					Come join me, a relatively new developer, as I dwelve into the latest gadgets, talk about my experiences in the software industry, and emerging coding practices.</p>
+				</div>
+				<br/>
+				<div class="actions">
+					<button class="btn btn-primary btn-submit" ng-click="subscribe()"><i class="fa fa-plus fa-sub"></i>&nbsp;Subscribe</button>
+					<div class="action-seperator"></div>
+					<button class="btn btn-success btn-transparent" id="btnSuccessTransparent" ng-click="addPost()" ng-show="isAuthenticated">Add Post</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-blog">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<p>Copyright &#9400 {{date | date:'yyyy'}} William Wang. All assets belong to their respective owners.</p>		
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+</div>

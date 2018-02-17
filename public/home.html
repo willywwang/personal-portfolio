@@ -6,11 +6,7 @@
 				<h1 id="landing-title">WILLIAM WANG</h1>
 				<h2 id="landing-descriptors"><typedjs strings=landingDescriptors></typedjs></h2>
 			</div>
-			<div class="landing-bottom-space">
-				<a class="about-scroll scrollAnimation" href="#about">
-					<i class="fa fa-4x fa-arrow-circle-o-down"></i>
-				</a>
-			</div>
+			<div class="landing-bottom-space"></div>
 		</div>
 		<div class="col-xs-1 view"></div>
 	</div>
@@ -105,8 +101,8 @@
 				ng-mouseenter="viewProject1InfoButtons=true"
 				ng-mouseleave="viewProject1InfoButtons=false">
 				<div class="project-panel-info" ng-mouseenter="viewProject1InfoButtons=true" ng-hide="viewProject1InfoButtons">
-					<h2	ng-mouseenter="viewProject1InfoButtons=true">Battleship</h2>
-					<h3 ng-mouseenter="viewProject1InfoButtons=true">Console Application</h3>
+					<h2 class="project-name" ng-mouseenter="viewProject1InfoButtons=true">Battleship</h2>
+					<h3 class="project-type" ng-mouseenter="viewProject1InfoButtons=true">Console Application</h3>
 				</div>
 				<div class="project-panel-buttons" ng-mouseenter="viewProject1InfoButtons=true" 
 				ng-show="viewProject1InfoButtons">
@@ -135,8 +131,8 @@
 				ng-mouseenter="viewProject2InfoButtons=true"
 				ng-mouseleave="viewProject2InfoButtons=false">
 				<div class="project-panel-info" ng-mouseenter="viewProject2InfoButtons=true" ng-hide="viewProject2InfoButtons">
-					<h2 ng-mouseenter="viewProject2InfoButtons=true">Various Websites</h2>
-					<h3 ng-mouseenter="viewProject2InfoButtons=true">Web Application</h3>
+					<h2 class="project-name" ng-mouseenter="viewProject2InfoButtons=true">Various Websites</h2>
+					<h3 class="project-type" ng-mouseenter="viewProject2InfoButtons=true">Web Application</h3>
 				</div>
 				<div class="project-panel-buttons" ng-mouseenter="viewProject2InfoButtons=true" 
 				ng-show="viewProject2InfoButtons">
@@ -147,7 +143,7 @@
 					</button>
 					<br/>
 					<br/>
-					<a href="https://github.com/willywwang/willywwang.github.io" target="_blank" 
+					<a href="https://github.com/willywwang/prototype-website-personal" target="_blank" 
 					ng-mouseenter="viewProject2InfoButtons=true">
 						<button class="project-button" ng-mouseenter="viewProject2InfoButtons=true">
 							<i style="color: black" class="glyphicon glyphicon-new-window" ng-mouseenter="viewProject2InfoButtons=true"></i>&nbsp;&nbsp;Source Code

@@ -6,13 +6,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require("http");
+var passport = require('passport');
+var flash = require('express-flash');
 
 require('./models/models');
-//var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/sample-app');
+var mongoose = require('mongoose');
+// local mongo environment
+//mongoose.connect('mongodb://127.0.0.1/website-app');
+mongoose.connect(process.env.MONGODB_URI);
 
 var index = require('./routes/index');
 var contact = require('./routes/contact')
+var blog = require('./routes/blog');
+var auth = require('./routes/auth')(passport);
 
 var app = express();
 
@@ -20,19 +26,29 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(session({ secret: process.env.sessionSecret }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
+app.use('/components', express.static(path.join(__dirname, 'bower_components')));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use('/', index);
 app.use('/contact', contact);
-app.use('/*', index);
+app.use('/blog', blog);
+app.use('/auth', auth);
+
+app.use('/blog*', index);
+app.use('/login*', index);
+
+var initPassport = require('./passport-init');
+initPassport(passport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,13 +59,22 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
+  console.log(err);
   res.status(err.status || 500);
-  res.render('error');
+
+  if (err.status === 404) {
+  	res.render('status-error', { 
+      title: 'Will Wang - CPSC', 
+      statusCode: 404, 
+      errorMessage: 'Looks like you ventured into an uncreated area!' 
+    });
+  } else {
+  	res.render('status-error', {
+      title: 'Will Wang - CPSC', 
+      statusCode: 500,
+      errorMessage: 'Oops, looks like something went wrong.'
+    });
+  }
 });
 
 setInterval(function() {
