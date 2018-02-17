@@ -1,6 +1,5 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
-var config = require('../config.json');
 var router = express.Router();
 
 router.route('/email')
@@ -18,7 +17,7 @@ router.route('/email')
 			service: 'Gmail',
 			auth: {
 				user: 'wang.yw.william@gmail.com',
-				pass: config.emailPassword
+				pass: process.env.emailPassword
 			}
 		});
 

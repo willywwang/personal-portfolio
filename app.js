@@ -5,12 +5,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var http = require("http");
 
 require('./models/models');
 //var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/sample-app');
 
-var config = require('./config.json');
 var index = require('./routes/index');
 var contact = require('./routes/contact')
 
@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(session({ secret: config.sessionSecret }));
+app.use(session({ secret: process.env.sessionSecret }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -52,4 +52,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+setInterval(function() {
+    http.get("http://will-portfolio.herokuapp.com");
+}, 300000);
+	
 module.exports = app;
