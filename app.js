@@ -12,7 +12,8 @@ var http = require('http');
 require('./models/models');
 var mongoose = require('mongoose');
 // local mongo environment
-//mongoose.connect('mongodb://127.0.0.1/website-app');
+// mongoose.connect('mongodb://127.0.0.1/website-app');
+// Production mongo environment
 mongoose.connect(process.env.MONGODB_URI);
 
 var index = require('./routes/index');

@@ -1,8 +1,10 @@
 <div class="modal-header">
-	<h2 class="modal-title">Software Developer Internship</h2>
+	<h2 class="modal-title">{{title}}</h2>
 </div>
 <div class="modal-body">
-	<p>Currently working here.</p>
+	<ul>
+		<li ng-repeat="item in description">{{item}}</li>
+	</ul>
 </div>
 <div class="modal-footer">
 	<input type="close" value="Close" ng-click="close()" class="btn btn-primary btn-contact-close"/>

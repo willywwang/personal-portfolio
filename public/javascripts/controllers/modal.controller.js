@@ -1,10 +1,18 @@
 angular.module('websiteApp')
-.controller('modalController', ['$scope', '$rootScope','$uibModal', '$uibModalInstance', '$http',
-	function($scope, $rootScope, $uibModal, $uibModalInstance, $http) {
+.controller('modalController', ['$scope', '$rootScope','$uibModal', '$uibModalInstance', '$http', 'data',
+	function($scope, $rootScope, $uibModal, $uibModalInstance, $http, data) {
 		$scope.didUserSubmit = false;
 		$scope.showErrors = false;
 		$scope.showSuccess = false;
 		$scope.subscriptionError = "";
+
+		(function init() {
+			$scope.title = data.title;
+
+			if (data.type === 'job') {
+				$scope.description = data.description;
+			}
+		})();
 
 		$scope.close = function() {
 			$uibModalInstance.close();

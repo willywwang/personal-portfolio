@@ -69,6 +69,41 @@ angular.module('websiteApp')
 			}
 		};
 
+		$scope.jobs = {
+			'BWS': {
+				title: 'Software Engineer Co-op',
+				description: [
+					'Optimized loading times of main page by up to 50% on various environments',
+					'Updated authentication flow in back-end to allow for login between various database pods',
+					'Created a family dashboard for web and mobile applications that tracks various data, such as temperature and location, about residents in senior care homes'
+				]
+			},
+			'EDP': {
+				title: 'Software Developer Intern',
+				description: [
+					'Participated in design and development of software using C#, AngularJS, and agile development',
+					'Worked with a subset of the developer, product, and business teams to create an audit service for in-house logging of issues and an API integration where users can ' +
+					'perform basic CRUD operations on data in the system'
+				]
+			},
+			'Aff': {
+				title: 'Support Technician',
+				description: [
+					'Provided remote and phone assistance for clients for varied Windows environments',
+					'Setup, repaired, and upgraded desktop for clients and connected them to server',
+					'Troubleshot mobile and tablet devices and their software'
+				]
+			},
+			'Kumon': {
+				title: 'Team Leader',
+				description: [
+					'Trained new employees and tutored around 60 students from kindergarten to grade 12 weekly in math and reading',
+					'Scheduled and distributed students\' work for future weeks',
+					'Tracked the status of 200+ students monthly and created a monthly report regarding each students\' progress'
+				]
+			}
+		};
+
 		$scope.updateName = function() {
 			$window.sessionStorage.setItem('name', $scope.name);
 		};
@@ -101,38 +136,42 @@ angular.module('websiteApp')
 			});
 		};
 
-		$scope.openEDPModal = function() {
-			$uibModal.open({
-				templateUrl: 'edp.template.html',
-				controller: 'modalController'
-			});
-		};
+		$scope.openJobModal = function(jobName) {
+			var job = $scope.jobs[jobName];
+			job.type = 'job';
 
-		$scope.openAffModal = function() {
 			$uibModal.open({
-				templateUrl: 'affinity.template.html',
-				controller: 'modalController'
-			});
-		};
-
-		$scope.openKumonModal = function() {
-			$uibModal.open({
-				templateUrl: 'kumon.template.html',
-				controller: 'modalController'
-			});
-		};
+				templateUrl: 'job-template.html',
+				controller: 'modalController',
+				resolve: {
+					data: function() {
+						return job;
+					}
+				}
+			})
+		}
 
 		$scope.openPythonProjectModal = function() {
 			$uibModal.open({
 				templateUrl: 'python.project.template.html',
-				controller: 'modalController'
+				controller: 'modalController',
+				resolve: {
+					data: function() {
+						return {};
+					}
+				}
 			});
 		};
 
 		$scope.openWebProjectModal = function() {
 			$uibModal.open({
 				templateUrl: 'web.project.template.html',
-				controller: 'modalController'
+				controller: 'modalController',
+				resolve: {
+					data: function() {
+						return {};
+					}
+				}
 			});
 		};
 	}]);
