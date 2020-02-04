@@ -77,9 +77,5 @@ app.use(function(err, req, res, next) {
     });
   }
 });
-
-setInterval(function() {
-    http.get("http://will-portfolio.herokuapp.com");
-}, 300000);
 	
 module.exports = app;
