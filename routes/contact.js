@@ -16,13 +16,13 @@ router.route('/email')
 		var transporter = nodemailer.createTransport({
 			service: 'Gmail',
 			auth: {
-				user: 'wang.yw.william@gmail.com',
+				user: 'william.yen.wang@gmail.com',
 				pass: process.env.emailPassword
 			}
 		});
 
 		var mailOptions = {
-			from: 'wang.yw.william@gmail.com',
+			from: 'william.yen.wang@gmail.com',
 			to: 'wang.yw.william@gmail.com',
 			subject: 'Contact Message from Website',
 			text: "Name: " + req.body.name + "\n" +
