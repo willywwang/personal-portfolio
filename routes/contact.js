@@ -33,7 +33,8 @@ router.route('/email')
 		transporter.sendMail(mailOptions, function(err, info){
 			if (err) {
 				return res.send({ 
-					state: 'failure'
+					state: 'failure',
+					error: err
 				});
 			} else {
 				return res.send({
