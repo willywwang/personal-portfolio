@@ -14,15 +14,15 @@ router.route('/email')
 		});
 	} else {
 		var transporter = nodemailer.createTransport({
-			service: 'Gmail',
+			service: 'Hotmail',
 			auth: {
-				user: 'william.yen.wang@gmail.com',
+				user: 'william.wang97@hotmail.com',
 				pass: process.env.emailPassword
 			}
 		});
 
 		var mailOptions = {
-			from: 'william.yen.wang@gmail.com',
+			from: 'william.wang97@hotmail.com',
 			to: 'wang.yw.william@gmail.com',
 			subject: 'Contact Message from Website',
 			text: "Name: " + req.body.name + "\n" +
